@@ -307,27 +307,7 @@ def systempars():
     print(f"Hostname: {socket.gethostname()}")
     print(f"Public IP Address: {requests.get('https://api.ipify.org').text}")
 #========================================
-def generate_password(length, use_lowercase, use_uppercase, use_digits, use_special):
-    try:
-        characters = ""
-        if use_lowercase:
-            characters += string.ascii_lowercase
-        if use_uppercase:
-            characters += string.ascii_uppercase
-        if use_digits:
-            characters += string.digits
-        if use_special:
-            characters += string.punctuation
-
-        if not characters:
-            return None
-
-        password = ''.join(random.choice(characters) for i in range(length))
-        return password
-    except ValueError:
-        return None
-
-def get_password_options():
+def passgen():
     while True:
         try:
             length = int(input("Введите длину пароля: "))
@@ -340,28 +320,35 @@ def get_password_options():
             use_digits = input("Использовать цифры? (да/нет) ").lower() == "да"
             use_special = input("Использовать специальные символы? (да/нет) ").lower() == "да"
 
-            return length, use_lowercase, use_uppercase, use_digits, use_special
+            characters = ""
+            if use_lowercase:
+                characters += string.ascii_lowercase
+            if use_uppercase:
+                characters += string.ascii_uppercase
+            if use_digits:
+                characters += string.digits
+            if use_special:
+                characters += string.punctuation
+
+            if not characters:
+                print("[!] Вы должны выбрать хотя бы один тип символов.")
+                continue
+
+            password = ''.join(random.choice(characters) for i in range(length))
+            print("Сгенерированный пароль:", password)
+
+            choice = input("[?] Хотите сгенерировать другой пароль? (y/n) ")
+            if choice.lower() == "n":
+                print("[*] Возвращение в главное меню...")
+                break
+            elif choice.lower() == "y":
+                continue
+            else:
+                print("[!] Неверный выбор. Пожалуйста, попробуйте еще раз.")
+
         except ValueError:
             print("[!] Недопустимый ввод. Пожалуйста, введите положительное целое число для длины пароля.")
             continue
-
-def run_password_generator():
-    while True:
-        length, use_lowercase, use_uppercase, use_digits, use_special = get_password_options()
-        password = generate_password(length, use_lowercase, use_uppercase, use_digits, use_special)
-        if password is None:
-            print("[!] Не удалось сгенерировать пароль. Пожалуйста, попробуйте еще раз.")
-        else:
-            print("Сгенерированный пароль:", password)
-
-        choice = input("[?] Хотите сгенерировать другой пароль? (y/n) ")
-        if choice.lower() == "n":
-            print("[*] Возвращение в главное меню...")
-            break
-        elif choice.lower() == "y":
-            continue
-        else:
-            print("[!] Неверный выбор. Пожалуйста, попробуйте еще раз.")
 #========================================
 def emailGen():
     first_name = ''.join(random.choices(string.ascii_lowercase, k=random.randint(5, 10)))
