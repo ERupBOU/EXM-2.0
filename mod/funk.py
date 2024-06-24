@@ -1,7 +1,5 @@
 import tldextract
-
 #all funk
-
 import re
 import phonenumbers
 from phonenumbers import geocoder, carrier, timezone
@@ -23,6 +21,21 @@ import qrcode
 import base64
 import tldextract
 import hashlib
+
+
+
+
+
+
+#=======================================
+def genuser():
+    num_user_agents = int(input("Введите количество user agent строк, которые нужно сгенерировать: "))
+    for _ in range(num_user_agents):
+        platform = random.choice(['Windows', 'Macintosh', 'Linux', 'iPhone', 'Android'])
+        browser = random.choice(['Chrome', 'Firefox', 'Safari', 'Opera', 'Edge'])
+        version = ''.join(random.choices(string.digits, k=2)) + '.' + ''.join(random.choices(string.digits, k=1)) + '.' + ''.join(random.choices(string.digits, k=1))
+        user_agent = f"Mozilla/5.0 ({platform}; rv:{version}) Gecko/20100101 {browser}/{version}"
+        print(user_agent)
 #=======================================
 def hash_calculator(input_text, hash_type):
     if hash_type == 'md5':
