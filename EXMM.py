@@ -68,21 +68,20 @@ def clear_and_print_logo():
 
 
 
-clear_and_print_logo()
-print_funk()
-
 
 
 
 def mainstart():
+    clear_and_print_logo()
+    printfunk()
     while True:
     choice = int(input("[?]>>"))
     if choice == 1:
         clear_and_print_logo()
-        phonepars()
+        crypter()
     elif choice == 2:
         clear_and_print_logo()
-        ipparse()
+        portpars()
     elif choice == 3:
         clear_and_print_logo()
         nikpars()
@@ -127,12 +126,7 @@ def mainstart():
         print("[¿]>>")
 
 
-
-
-while True:
-    printlogo()
-    input_key = input()
-    if input_key == "\n":
+if __name__ == "__main__":
+    while True:
         mainstart()
-        break
 
