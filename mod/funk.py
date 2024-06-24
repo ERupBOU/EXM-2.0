@@ -4,7 +4,6 @@ from phonenumbers import geocoder, carrier, timezone
 import random
 import string
 import platform
-import psutil
 import shutil
 import socket
 import netifaces
