@@ -139,7 +139,7 @@ def portpars():
     except socket.error:
         print(f"Ошибка: Не удалось установить соединение с хостом {host}")
 #========================================
-def Datagen():
+def datgen():
     num_dates = int(input("Введите количество дат, которое нужно сгенерировать: "))
     dates = generate_random_dates(num_dates)
     for date in dates:
