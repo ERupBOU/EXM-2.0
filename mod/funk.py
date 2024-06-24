@@ -6,7 +6,6 @@ import string
 import platform
 import shutil
 import socket
-import netifaces
 import requests
 import pyudev
 import os
