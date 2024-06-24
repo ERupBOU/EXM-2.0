@@ -1,3 +1,5 @@
+import tldextract
+
 #all funk
 
 import re
@@ -19,29 +21,38 @@ import mutagen
 import PyPDF2
 import qrcode
 import base64
+import tldextract
+import hashlib
+#=======================================
+def hash_calculator(input_text, hash_type):
+    if hash_type == 'md5':
+        return hashlib.md5(input_text.encode()).hexdigest()
+    elif hash_type == 'sha256':
+        return hashlib.sha256(input_text.encode()).hexdigest()
+    else:
+        raise ValueError("Недопустимый тип хеша. Используйте 'md5' или 'sha256'.")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    user_input = input("Введите текст для вычисления хеша: ")
+    hash_type = input("Введите тип хеша (md5 или sha256): ")
+    
+    try:
+        computed_hash = hash_calculator(user_input, hash_type)
+        print(f"{hash_type.upper()} хеш: {computed_hash}")
+    except ValueError as e:
+        print(e)
+#=======================================
+def get_domain_info():
+    domain = input("Введите домен: ")
+    extract = tldextract.extract(f"http://{domain}")
+    
+    print(f"Найден домен: {domain}")
+    print(f"Публичный суффикс: {extract.suffix}")
+    print(f"Субдомен: {extract.subdomain}")
+    print(f"Основной домен: {extract.domain}")
 
 #========================================
 def base64_converter():
-    """
-    Кодирует или декодирует текст в/из base64 в зависимости от выбора пользователя.
-    """
     choice = input("Выберите операцию (1 - Кодировать, 2 - Декодировать): ")
 
     if choice == "1":
