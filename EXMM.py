@@ -1,8 +1,64 @@
 from mod import *
 
-clear()
-printlogo()
-printfunk()
+
+import os
+import platform
+import time
+from pystyle import Colorate, Colors, Anime, Center
+
+
+def clear():
+    system = platform.system()
+    if system == 'Windows':
+        os.system('cls')
+    elif system == 'Linux' or system == 'Darwin':
+        os.system('clear')
+
+
+
+def printfunk():
+    
+
+
+
+
+
+
+
+
+
+
+logo = '''
+███████████████████████████████████████████████████████████████
+█                                                             █
+█  ██╗░░░░░██╗░██████╗░██╗░░██╗████████╗██╗░░░██╗███╗░░░███╗  █
+█  ██║░░░░░██║██╔════╝░██║░░██║╚══██╔══╝██║░░░██║████╗░████║  █
+█  ██║░░░░░██║██║░░██╗░███████║░░░██║░░░██║░░░██║██╔████╔██║  █
+█  ██║░░░░░██║██║░░╚██╗██╔══██║░░░██║░░░██║░░░██║██║╚██╔╝██║  █
+█  ███████╗██║╚██████╔╝██║░░██║░░░██║░░░╚██████╔╝██║░╚═╝░██║  █
+█  ╚══════╝╚═╝░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░╚═╝░░░░░╚═╝  █
+█                                                             █
+███████████████████████████████████████████████████████████████
+
+[ Press enter to start ]
+'''
+
+def clear_and_print_logo():
+   clear()                print(Colorate.Horizontal(Colors.cyan_to_green, logo))
+    Anime.Fade(
+        Center.XCenter(logo),
+        Colors.cyan_to_green,
+        Colorate.Vertical,
+        enter=True
+    )
+
+
+
+clear_and_print_logo()
+print_funk()
+
+
+
 
 
 while True:
@@ -107,3 +163,14 @@ while True:
         break
     else:
         print("[¿]>>")
+
+
+
+
+while True:
+    printlogo()
+    input_key = input()
+    if input_key == "\n":
+        mainstart()
+        break
+
