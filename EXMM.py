@@ -45,7 +45,7 @@ logo = '''
 
 def clear_and_print_logo():
    cleer()
-    print(Colorate.Horizontal(Colors.cyan_to_green, logo))
+   print(Colorate.Horizontal(Colors.cyan_to_green, logo))
     Anime.Fade(
         Center.XCenter(logo),
         Colors.cyan_to_green,
