@@ -1,5 +1,3 @@
-import tldextract
-#all funk by exm 
 import re
 import phonenumbers
 from phonenumbers import geocoder, carrier, timezone
@@ -18,12 +16,11 @@ import mutagen
 import PyPDF2
 import qrcode
 import base64
-import tldextract
 import hashlib
 from datetime import datetime
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
-import os
+import tldextract
 
 
 
