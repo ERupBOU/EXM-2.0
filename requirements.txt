@@ -1,0 +1,10 @@
+phonenumbers
+random
+requests
+pyudev
+exifread
+mutagen
+PyPDF2
+qrcode
+pycryptodome
+tldextract
