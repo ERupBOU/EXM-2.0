@@ -189,6 +189,23 @@ def base64conv():
         base64_converter()
 #========================================
 
+
+def qrgen():
+    url = input("Введите ссылку: ")
+    save_path = input("Введите путь для сохранения QR-кода (например, 'C:/Users/username/qrcode.png'): ")
+
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(url)
+    qr.make(fit=True)
+
+    img = qr.make_image(fill_color="black", back_color="white")
+    img.save(save_path)
+    print(f"QR-код успешно создан и сохранен в файле '{save_path}'.")
 #========================================
 def metapars():
     image_path = input("[?] Путь к файлу > ")
