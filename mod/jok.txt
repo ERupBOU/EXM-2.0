@@ -7,3 +7,5 @@ hash_calculator() калькулятор хеша
 usergen() генератор юзеров
 base64conv() кодеренкодер
 domainpars() инфо о домене
+qrgen() генератор кодов
+metapars() метаданные изображения
