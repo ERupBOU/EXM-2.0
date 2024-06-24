@@ -4,6 +4,7 @@ pyudev
 exifread
 mutagen
 PyPDF2
+psutil
 qrcode
 crypto
 tldextract
