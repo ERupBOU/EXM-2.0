@@ -75,57 +75,57 @@ def mainstart():
     clear_and_print_logo()
     printfunk()
     while True:
-    choice = int(input("[?]>>"))
-    if choice == 1:
-        clear_and_print_logo()
-        crypter()
-    elif choice == 2:
-        clear_and_print_logo()
-        portpars()
-    elif choice == 3:
-        clear_and_print_logo()
-        textcur()
-    elif choice == 4:
-        clear_and_print_logo()
-        datgen()
-    elif choice == 5:
-        clear_and_print_logo()
-        netpars()
-    elif choice == 6:
-        clear_and_print_logo()
-        hash_calculator()
-    elif choice == 7:
-        clear_and_print_logo()
-        usergen()
-    elif choice == 8:
-        clear_and_print_logo()
-        base64conv()
-    elif choice == 9:
-        clear_and_print_logo()
-        dominpars()
-    elif choice == 10:
-        clear_and_print_logo()
-        qrgen()
-    elif choice == 11:
-        clear_and_print_logo()
-        metapars()
-    elif choice == 12:
-        clear_and_print_logo()
-        syspars()
-    elif choice == 13:
-        clear_and_print_logo()
-        passgen()
-    elif choice == 14:
-        clear_and_print_logo()
-        emailgen()
-    elif choice == 15:
-        clear_and_print_logo()
-        phonepars()  
-    elif choice == 33:
-        break
-    else:
-        print("[¿]>>")
-        continue
+        choice = int(input("[?]>>"))
+        if choice == 1:
+            clear_and_print_logo()
+            crypter()
+        elif choice == 2:
+            clear_and_print_logo()
+            portpars()
+        elif choice == 3:
+            clear_and_print_logo()
+            textcur()
+        elif choice == 4:
+            clear_and_print_logo()
+            datgen()
+        elif choice == 5:
+            clear_and_print_logo()
+            netpars()
+        elif choice == 6:
+            clear_and_print_logo()
+            hash_calculator()
+        elif choice == 7:
+            clear_and_print_logo()
+            usergen()
+        elif choice == 8:
+            clear_and_print_logo()
+            base64conv()
+        elif choice == 9:
+            clear_and_print_logo()
+            dominpars()
+        elif choice == 10:
+            clear_and_print_logo()
+            qrgen()
+        elif choice == 11:
+            clear_and_print_logo()
+            metapars()
+        elif choice == 12:
+            clear_and_print_logo()
+            syspars()
+        elif choice == 13:
+            clear_and_print_logo()
+            passgen()
+        elif choice == 14:
+            clear_and_print_logo()
+            emailgen()
+        elif choice == 15:
+            clear_and_print_logo()
+            phonepars()
+        elif choice == 33:
+            break
+        else:
+            print("[¿]>>")
+            continue
 
 
 if __name__ == "__main__":
