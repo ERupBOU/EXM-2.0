@@ -3,6 +3,8 @@
 import re
 import phonenumbers
 from phonenumbers import geocoder, carrier, timezone
+import random
+import string
 
 
 
@@ -29,8 +31,23 @@ from phonenumbers import geocoder, carrier, timezone
 
 
 
+#========================================
+def emailGen():
+    first_name = ''.join(random.choices(string.ascii_lowercase, k=random.randint(5, 10)))
+    last_name = ''.join(random.choices(string.ascii_lowercase, k=random.randint(5, 10)))
 
+    username = f"{first_name.lower()}.{last_name.lower()}"
+    random_chars = ''.join(random.choices(string.ascii_letters + string.digits, k=random.randint(3, 5)))
+    email = f"{username}{random_chars}@example.com"
 
+    password_length = random.randint(8, 16)
+    password = ''.join(random.choices(string.ascii_letters + string.digits, k=password_length))
+
+    print(f"Сгенерированный email: {email}")
+    print(f"Сгенерированный пароль: {password}")
+
+emailGen()
+#========================================
 def phonepars():
     while True:
         phone_number = input("Введите номер телефона (например, +79991234567): ")
