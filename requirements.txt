@@ -5,5 +5,5 @@ exifread
 mutagen
 PyPDF2
 qrcode
-pycryptodome
+crypto
 tldextract
