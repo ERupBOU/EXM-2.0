@@ -101,7 +101,7 @@ def mainstart():
         base64conv()
     elif choice == 9:
         clear_and_print_logo()
-        dominpars
+        dominpars()
     elif choice == 10:
         clear_and_print_logo()
         qrgen()
