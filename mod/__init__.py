@@ -1,1 +1,1 @@
-.
+from .funk import *
