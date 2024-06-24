@@ -111,7 +111,7 @@ def mainstart():
             metapars()
         elif choice == 12:
             clear_and_print_logo()
-            syspars()
+            print("er")
         elif choice == 13:
             clear_and_print_logo()
             passgen()
