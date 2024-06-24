@@ -12,7 +12,6 @@ import socket
 import netifaces
 import requests
 import pyudev
-import shutil
 import os
 import exifread
 import mutagen
@@ -21,7 +20,79 @@ import qrcode
 import base64
 import tldextract
 import hashlib
+from datetime import datetime
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+#======================================
+def portpars():
+    host = input("Введите хост для сканирования: ")
+    
+    start_port = int(input("Введите начальный порт: "))
+    end_port = int(input("Введите конечный порт: "))
+    
+    print(f"Сканирование хоста {host} в диапазоне портов от {start_port} до {end_port}...")
+    
+    try:
+        for port in range(start_port, end_port + 1):
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(0.1)
+            result = sock.connect_ex((host, port))
+            
+            if result == 0:
+                print(f"Порт {port} открыт")
+            sock.close()
+    except socket.gaierror:
+        print(f"Ошибка: Не удалось разрешить хост {host}")
+    except socket.error:
+        print(f"Ошибка: Не удалось установить соединение с хостом {host}")
+#========================================
+def netpars():
+    print("Сетевая информация:")
+    interfaces = netifaces.interfaces()
+    for iface in interfaces:
+        print(f"Интерфейс: {iface}")
+        addrs = netifaces.ifaddresses(iface)
+        if netifaces.AF_INET in addrs:
+            for link in addrs[netifaces.AF_INET]:
+                print(f"  IP-адрес: {link['addr']}")
+                print(f"  Маска подсети: {link['netmask']}")
+        if netifaces.AF_LINK in addrs:
+            for link in addrs[netifaces.AF_LINK]:
+                print(f"  MAC-адрес: {link['addr']}")
+        print()
+
+def portpars():
+    host = input("Введите хост для сканирования: ")
+    start_port = int(input("Введите начальный порт: "))
+    end_port = int(input("Введите конечный порт: "))
+    
+    print(f"Сканирование хоста {host} в диапазоне портов от {start_port} до {end_port}...")
+    
+    try:
+        for port in range(start_port, end_port + 1):
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(0.1)
+            result = sock.connect_ex((host, port))
+            
+            if result == 0:
+                print(f"Порт {port} открыт")
+            sock.close()
+    except socket.gaierror:
+        print(f"Ошибка: Не удалось разрешить хост {host}")
+    except socket.error:
+        print(f"Ошибка: Не удалось установить соединение с хостом {host}")
 #========================================
 def Datagen():
     num_dates = int(input("Введите количество дат, которое нужно сгенерировать: "))
