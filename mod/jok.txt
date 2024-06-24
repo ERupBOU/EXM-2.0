@@ -5,3 +5,5 @@ datgen() генератор дат
 netpars() сетевая информация 
 hash_calculator() калькулятор хеша 
 usergen() генератор юзеров
+base64conv() кодеренкодер
+domainpars() инфо о домене
