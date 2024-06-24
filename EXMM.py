@@ -55,9 +55,10 @@ soft by EXM TG:ZBYKCMEPTU
 '''
 
 def clear_and_print_logo():
-   cleer()
-   while True:
-       print(Colorate.Horizontal(Colors.cyan_to_green, logo))
+    clear()
+    while True:
+        print(Colorate.Horizontal(Colors.cyan_to_green, logo))
+
     Anime.Fade(
         Center.XCenter(logo),
         Colors.cyan_to_green,
