@@ -1,4 +1,4 @@
-from mod import *
+from mod.funk import *
 
 
 import os
