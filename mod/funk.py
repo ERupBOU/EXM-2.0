@@ -18,6 +18,7 @@ import exifread
 import mutagen
 import PyPDF2
 import qrcode
+import base64
 
 
 
@@ -36,11 +37,24 @@ import qrcode
 
 
 
+#========================================
+def base64_converter():
+    """
+    Кодирует или декодирует текст в/из base64 в зависимости от выбора пользователя.
+    """
+    choice = input("Выберите операцию (1 - Кодировать, 2 - Декодировать): ")
 
-
-
-
-
+    if choice == "1":
+        text = input("Введите текст для кодирования в base64: ")
+        encoded_text = base64.b64encode(text.encode()).decode()
+        print(f"Закодированный текст: {encoded_text}")
+    elif choice == "2":
+        b64_text = input("Введите текст, закодированный в base64: ")
+        decoded_text = base64.b64decode(b64_text.encode()).decode()
+        print(f"Декодированный текст: {decoded_text}")
+    else:
+        print("Неверный выбор. Попробуйте еще раз.")
+        base64_converter()
 #========================================
 def generate_qr_code(url, filename):
     qr = qrcode.QRCode(
