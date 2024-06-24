@@ -117,27 +117,7 @@ def netpars():
             for link in addrs[netifaces.AF_LINK]:
                 print(f"  MAC-адрес: {link['addr']}")
         print()
-
-def portpars():
-    host = input("Введите хост для сканирования: ")
-    start_port = int(input("Введите начальный порт: "))
-    end_port = int(input("Введите конечный порт: "))
-    
-    print(f"Сканирование хоста {host} в диапазоне портов от {start_port} до {end_port}...")
-    
-    try:
-        for port in range(start_port, end_port + 1):
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(0.1)
-            result = sock.connect_ex((host, port))
-            
-            if result == 0:
-                print(f"Порт {port} открыт")
-            sock.close()
-    except socket.gaierror:
-        print(f"Ошибка: Не удалось разрешить хост {host}")
-    except socket.error:
-        print(f"Ошибка: Не удалось установить соединение с хостом {host}")
+ 
 #========================================
 def datgen():
     num_dates = int(input("Введите количество дат, которое нужно сгенерировать: "))
@@ -186,7 +166,7 @@ if __name__ == "__main__":
     except ValueError as e:
         print(e)
 #=======================================
-def get_domain_info():
+def domainpars():
     domain = input("Введите домен: ")
     extract = tldextract.extract(f"http://{domain}")
     
@@ -196,7 +176,7 @@ def get_domain_info():
     print(f"Основной домен: {extract.domain}")
 
 #========================================
-def base64_converter():
+def base64conv():
     choice = input("Выберите операцию (1 - Кодировать, 2 - Декодировать): ")
 
     if choice == "1":
