@@ -14,6 +14,9 @@ import requests
 import pyudev
 import shutil
 import os
+import exifread
+import mutagen
+import PyPDF2
 
 
 
@@ -41,7 +44,16 @@ import os
 
 
 
-
+#========================================
+def metapars():
+    image_path = input("[?] Путь к файлу > ")
+    with open(image_path, 'rb') as f:
+        tags = exifread.process_file(f)
+        metadata = {}
+        for tag in tags.keys():
+            if tag not in ('JPEGThumbnail', 'EXIF MakerNote'):
+                metadata[tag] = tags[tag]
+    return metadata
 #========================================
 def systempars():
     print("System Information:")
