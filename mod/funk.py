@@ -22,10 +22,25 @@ import base64
 import tldextract
 import hashlib
 
+#========================================
+def Datagen():
+    num_dates = int(input("Введите количество дат, которое нужно сгенерировать: "))
+    dates = generate_random_dates(num_dates)
+    for date in dates:
+        print(f"Формат ГГГГ-ММ-ДД: {date[0]}")
+        print(f"Формат ДД.ММ.ГГГГ: {date[1]}")
+        print()
 
+def generate_random_dates(num_dates):
+    start_date = datetime(2000, 1, 1)
+    end_date = datetime(2023, 12, 31)
 
+    dates = []
+    for _ in range(num_dates):
+        random_date = start_date + timedelta(seconds=random.randint(0, (end_date - start_date).total_seconds()))
+        dates.append((random_date.strftime("%Y-%m-%d"), random_date.strftime("%d.%m.%Y")))
 
-
+    return dates
 
 #=======================================
 def genuser():
