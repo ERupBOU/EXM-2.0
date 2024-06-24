@@ -48,10 +48,9 @@ logo = '''
   ██   █  ▄  ▄█▀▀██▄    █  ██▄█▀  ██  
   ██     ▄█ ▄█   ▀██▄   █  ▀██▀   ██  
 ▄████████████▄▄  ▄▄███▄███▄ ▀▀  ▄████▄
+  
+soft by EXM TG:ZBYKCMEPTU                                    
                                       
-                                      
-
-
 
 '''
 
@@ -84,46 +83,48 @@ def mainstart():
         portpars()
     elif choice == 3:
         clear_and_print_logo()
-        nikpars()
+        textcur()
     elif choice == 4:
         clear_and_print_logo()
-        websear()
+        datgen()
     elif choice == 5:
         clear_and_print_logo()
-        dbpars()
+        netpars()
     elif choice == 6:
         clear_and_print_logo()
-        dompars()
+        hash_calculator()
     elif choice == 7:
         clear_and_print_logo()
-        proxyGen()
+        usergen()
     elif choice == 8:
         clear_and_print_logo()
-        emailGen()
+        base64conv()
     elif choice == 9:
         clear_and_print_logo()
-        passGen()
+        dominpars
     elif choice == 10:
         clear_and_print_logo()
-        qrcodeGen()
+        qrgen()
     elif choice == 11:
         clear_and_print_logo()
-        randNumGen()
+        metapars()
     elif choice == 12:
         clear_and_print_logo()
-        hashCalc()
+        syspars()
     elif choice == 13:
         clear_and_print_logo()
-        base64DecEnc()
+        passgen()
     elif choice == 14:
         clear_and_print_logo()
-        randStringGen()
+        emailgen()
     elif choice == 15:
-        clear_and_print_logo()  
+        clear_and_print_logo()
+        phonepars()  
     elif choice == 33:
         break
     else:
         print("[¿]>>")
+        continue
 
 
 if __name__ == "__main__":
