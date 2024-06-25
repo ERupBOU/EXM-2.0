@@ -99,21 +99,12 @@ def portpars():
     except socket.error:
         print(f"Ошибка: Не удалось установить соединение с хостом {host}")
 #========================================
-def netpars():
-    print("Сетевая информация:")
-    interfaces = netifaces.interfaces()
-    for iface in interfaces:
-        print(f"Интерфейс: {iface}")
-        addrs = netifaces.ifaddresses(iface)
-        if netifaces.AF_INET in addrs:
-            for link in addrs[netifaces.AF_INET]:
-                print(f"  IP-адрес: {link['addr']}")
-                print(f"  Маска подсети: {link['netmask']}")
-        if netifaces.AF_LINK in addrs:
-            for link in addrs[netifaces.AF_LINK]:
-                print(f"  MAC-адрес: {link['addr']}")
-        print()
- 
+def ippars():
+    for name, interface in ifcfg.interfaces().items():
+        print(f"Interface: {name}")
+        print(f"  IP Address: {interface['inet']}")
+        print(f"  Netmask: {interface['netmask']}")
+        print(f"  MAC Address: {interface['mac']}")
 #========================================
 def datgen():
     num_dates = int(input("Введите количество дат, которое нужно сгенерировать: "))
