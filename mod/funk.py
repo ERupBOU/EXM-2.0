@@ -16,8 +16,6 @@ import qrcode
 import base64
 import hashlib
 from datetime import datetime
-from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
 import tldextract
 
 
