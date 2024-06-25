@@ -48,7 +48,11 @@ def mainstart():
     clear_and_print_logo()
     printfunk()
     while True:
-        choice = int(input(Colorate.Diagonal(Colors.red_to_green, "[?]>>")))
+        try:
+            choice = int(input(Colorate.Diagonal(Colors.cyan_to_green, "[?]>>")))
+        except ValueError:
+            print(Colorate.Diagonal(Colors.cyan_to_green, "Некорректный ввод. Пожалуйста, введите число."))
+            continue
         if choice == 1:
             clear_and_print_logo()
             crypter()
@@ -97,8 +101,7 @@ def mainstart():
         elif choice == 33:
             break
         else:
-            print(Colorate.Diagonal(Colors.red_to_green, "[¿]>>"))
-            continue
+            print(Colorate.Diagonal(Colors.cyan_to_green, "Неверный выбор. Попробуйте снова."))
 
 if __name__ == "__main__":
     mainstart()
