@@ -25,32 +25,33 @@ import tldextract
 
 
 #========================================
+import hashlib
+
 def crypter():
     file_path = input("Введите путь к файлу: ")
     mode = input("Введите режим работы (encrypt/decrypt): ")
-    key = get_random_bytes(16)
-    
+    key = os.urandom(16)  # Генерируем случайный ключ
+
     block_size = 16
-    cipher = AES.new(key, AES.MODE_ECB)
-    
-    with open(file_path, 'rb') as file:
+    cipher = hashlib.new('aes', key).encrypt
+
+    if mode == 'encrypt':
+        mode_suffix = 'encrypted'
+    elif mode == 'decrypt':
+        mode_suffix = 'decrypted'
+        cipher = hashlib.new('aes', key).decrypt
+    else:
+        raise ValueError("Неверный режим работы функции.")
+
+    with open(file_path, 'rb') as file, open(f"{file_path}.{mode_suffix}", 'wb') as output_file:
         while True:
             block = file.read(block_size)
             if not block:
                 break
-            if mode == 'encrypt':
-                encrypted_block = cipher.encrypt(block)
-            elif mode == 'decrypt':
-                encrypted_block = cipher.decrypt(block)
-            else:
-                raise ValueError("Неверный режим работы функции.")
-            with open(f"{file_path}.{'encrypted' if mode == 'encrypt' else 'decrypted'}", 'ab') as output_file:
-                output_file.write(encrypted_block)
-    
-    if mode == 'encrypt':
-        print(f"Файл {file_path}.encrypted успешно зашифрован.")
-    else:
-        print(f"Файл {file_path}.decrypted успешно расшифрован.")
+            encrypted_block = cipher(block)
+            output_file.write(encrypted_block)
+
+    print(f"Файл {file_path}.{mode_suffix} успешно обработан.")
 
 #========================================
 def textcur():
