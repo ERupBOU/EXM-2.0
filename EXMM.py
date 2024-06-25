@@ -12,24 +12,12 @@ def clear():
     elif system == 'Linux' or system == 'Darwin':
         os.system('clear')
 
-
-def print_functions():
-    print("Доступные функции:")
-    print("1. Crypter")
-    print("2. Portpars")
-    print("3. Textcur")
-    print("4. Datgen")
-    print("5. Network info")
-    print("6. Hash calculator")
-    print("7. Usergen")
-    print("8. Base64conv")
-    print("9. Dominpars")
-    print("10. Qrgen")
-    print("11. Metapars")
-    print("12. System info")
-    print("13. Passgen")
-    print("14. Emailgen")
-    print("15. Phonepars")
+def printfunk():
+    print(Colorate.Diagonal(Colors.cyan_to_green, '''
+ 1 Шифровальщик файлов | 2 Сканер портов | 3 Искажатель текста | 4 Генератор дат | 5 Сетевая информация Only pc
+ 6 Калькулятор хеша | 7 Генератор юзеров | 8 Кодер/декодер base64 | 9 Информация о домене | 10 Генератор qr-кодов
+11 Метаданные изображений | 12 Информация системы Only pc | 13 Генератор паролей | 14 Генератор почт | 15 Информация о номере
+'''))
 
 logo = '''
                                       
@@ -58,9 +46,9 @@ def clear_and_print_logo():
 
 def mainstart():
     clear_and_print_logo()
-    print_functions()
+    printfunk()
     while True:
-        choice = int(input("[?]>>"))
+        choice = int(input(Colorate.Diagonal(Colors.red_to_green, "[?]>>")))
         if choice == 1:
             clear_and_print_logo()
             crypter()
@@ -109,7 +97,7 @@ def mainstart():
         elif choice == 33:
             break
         else:
-            print("[¿]>>")
+            print(Colorate.Diagonal(Colors.red_to_green, "[¿]>>"))
             continue
 
 if __name__ == "__main__":
