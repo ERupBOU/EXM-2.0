@@ -1,11 +1,9 @@
 from mod.funk import *
 
-
 import os
 import platform
 import time
 from pystyle import Colorate, Colors, Anime, Center
-
 
 def clear():
     system = platform.system()
@@ -13,8 +11,6 @@ def clear():
         os.system('cls')
     elif system == 'Linux' or system == 'Darwin':
         os.system('clear')
-
-
 
 def printfunk():
     print('''
@@ -35,10 +31,6 @@ def printfunk():
 14 Информация о номере
 ''')
 
-
-
-
-
 logo = '''
                                       
 ▀███▀▀▀███▀███▀   ▀██▀▀████▄     ▄███▀
@@ -51,13 +43,11 @@ logo = '''
   
 soft by EXM TG:ZBYKCMEPTU                                    
                                       
-
 '''
 
 def clear_and_print_logo():
     clear()
-    while True:
-        print(Colorate.Horizontal(Colors.cyan_to_green, logo))
+    print(Colorate.Horizontal(Colors.cyan_to_green, logo))
 
     Anime.Fade(
         Center.XCenter(logo),
@@ -65,11 +55,6 @@ def clear_and_print_logo():
         Colorate.Vertical,
         enter=True
     )
-
-
-
-
-
 
 def mainstart():
     clear_and_print_logo()
@@ -127,8 +112,5 @@ def mainstart():
             print("[¿]>>")
             continue
 
-
 if __name__ == "__main__":
-    while True:
-        mainstart()
-
+    mainstart()
